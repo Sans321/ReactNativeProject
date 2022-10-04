@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet} from 'react-native';
+import * as Font from 'expo-font'
+import AppLoading from 'expo-app-loading';
+import InputKStack from './navigate';
 
+const fonts = () => Font.loadAsync({
+  'robco-light':require('./assets/fonts/RobotoCondensed-Light.ttf')
+});
+ 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+  const [font, setFont] = useState(false);
+
+  if(font){
+    return (
+    <InputKStack/>
   );
+  }else{
+    return(
+      <AppLoading 
+      startAsync={font} 
+      onFinish={()=>setFont(true)} 
+      onError={console.warn}/>
+    );
+  }
+
+  
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  
 });
