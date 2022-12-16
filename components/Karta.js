@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
-import { StyleSheet, TextInput, View, Image,TouchableOpacity, Text} from 'react-native';
+import { StyleSheet, TextInput, View, Image, TouchableOpacity, Text, Button} from 'react-native';
+import Svg, {Circle, Rect} from 'react-native-svg';
 import { gStyle } from '../styles/style';
 import DropDownPicker from 'react-native-dropdown-picker';
+
 
 export default function Schedule() {
     // Корпуса
@@ -51,7 +53,11 @@ export default function Schedule() {
     ]);
 
     return (
-    
+
+    // <Svg >
+       
+    // </Svg>
+
     <View style={gStyle.main1}>
       {/* <TouchableOpacity style={gStyle.button1}></TouchableOpacity>
       <TouchableOpacity style={gStyle.button2}></TouchableOpacity> 

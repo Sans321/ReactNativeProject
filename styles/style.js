@@ -14,6 +14,16 @@ export const gStyle = StyleSheet.create({
         fontFamily:'robco-light',
         textAlign: 'auto',
         left:15
+        
+
+    },
+    title3:{
+        fontSize: 20,
+        color: '#333',
+        fontFamily:'robco-light',
+        textAlign: 'auto',
+        left:5
+        
 
     },
     input: {
@@ -50,6 +60,40 @@ export const gStyle = StyleSheet.create({
         marginBottom:"5%",
         borderRadius:40,
         borderWidth:1
+    },
+    button1:{
+        padding:"1%",
+        alignItems: "center",
+        backgroundColor: "#1A8CF6",
+        marginBottom:"5%",
+        borderWidth:1
+    },
+    button2:{
+        padding:"5%",
+        alignItems: "center",
+        backgroundColor: "#1A8CF6",
+        marginBottom:"2%",
+        borderWidth:1
+    },
+    mcenterView:{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 22
+    },
+    modaView:{
+        margin: 50,
+        backgroundColor: "white",
+        borderRadius: 20,
+        padding: 35,
+        shadowColor: "#000",
+        shadowOffset: {
+        width: 0,
+        height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5
     },
     // button1:{
     //     alignItems: "center",
