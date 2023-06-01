@@ -4,6 +4,7 @@ import PersonalArea from "./components/PersonalArea";
 import Karta from "./components/Karta";
 import EductionSub from "./components/EductionSub";
 import TimeTAble from "./components/TImeTAble";
+import TimeTableV from "./components/TimeTAbleV";
 
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
@@ -48,7 +49,11 @@ export default function Navigate(){
              component={EductionSub}
              options={{title:'', headerStyle:{backgroundColor:'#8EC6FB'}}}
             />
-            
+            <Stack.Screen
+             name='TimeTAbleV'
+             component={TimeTableV}
+             options={{title:'', headerStyle:{backgroundColor:'#8EC6FB'}}}
+            />
         </Stack.Navigator>
     </NavigationContainer>;
 }

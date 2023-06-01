@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
-import { StyleSheet, TextInput, View, Image, TouchableOpacity, Text, Button} from 'react-native';
-import Svg, {Circle, Rect} from 'react-native-svg';
+import { StyleSheet, TextInput, View, Text} from 'react-native';
 import { gStyle } from '../styles/style';
 import DropDownPicker from 'react-native-dropdown-picker';
-
-
-export default function Schedule() {
+import MapComponent1 from '../plan/4/4K1S.js';
+ 
+export default function Karta() {
     // Корпуса
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState(null);
@@ -52,16 +51,12 @@ export default function Schedule() {
         {label: '4 корпус 4 этаж', value: '4 корпус 4 этаж'},
     ]);
 
+    
+
     return (
 
-    // <Svg >
-       
-    // </Svg>
-
     <View style={gStyle.main1}>
-      {/* <TouchableOpacity style={gStyle.button1}></TouchableOpacity>
-      <TouchableOpacity style={gStyle.button2}></TouchableOpacity> 
-      <Text style={gStyle.terxtkor}>Корпус 4 Этаж 1</Text> */}
+
       <DropDownPicker
       style={gStyle.dropselct5}
       open={open4}
@@ -71,9 +66,9 @@ export default function Schedule() {
       setValue={setValue4}
       setItems={setItems4}
       />
-
-      <Image source={require('../plan/4K1S.jpg')} style={gStyle.paln}/>
-
+        <View style={gStyle.paln}>
+            <MapComponent1 />
+        </View>      
       <DropDownPicker
       style={gStyle.dropselct1}
       open={open}
@@ -112,6 +107,7 @@ export default function Schedule() {
       setValue={setValue3}
       setItems={setItems3}
       />
+
       
     </View>
     );

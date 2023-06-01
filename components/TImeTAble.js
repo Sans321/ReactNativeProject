@@ -1,23 +1,26 @@
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, View,Text, TouchableOpacity, ScrollView, Modal } from 'react-native';
+import { StyleSheet, View,Text, TouchableOpacity, ScrollView, FlatList } from 'react-native';
 import { gStyle } from '../styles/style';
+import { Table, TableWrapper, Row, Rows, Col, Cols, Cell} from 'react-native-table-component';
 
 export default function TimeTAble() {  
     // const urlF = "https://www.ugrasu.ru/api/directory/faculties";
     // const urlG = "https://www.ugrasu.ru/api/directory/groups";
     // const url = `https://www.ugrasu.ru/api/directory/lessons?fromdate=2022-12-12&todate=2022-12-18&groupOid=6668` 
     // const dataG={1191:6668, 1192:6586, 1193:6426}
-    const [data, setData] = useState({})
+    const [tableHead, setTableHead]=useState(['Header1','Header2','Header3','Header4']);
+    const [data, setData] = useState([])
     const [loading, setLoading]= useState(true)
+    console.log(data)
 
-    const [modalVisibleISE, setModalVisibleISE] = useState(false);
-    const [modalVisibleING, setModalVisibleING] = useState(false);
+    // const [modalVisibleISE, setModalVisibleISE] = useState(false);
+    // const [modalVisibleING, setModalVisibleING] = useState(false);
  
     const[dataG, setDataG]=useState({1191:6668, 1192:6586, 1193:6426})
     
-    const url = `https://www.ugrasu.ru/api/directory/lessons?fromdate=2022-12-12&todate=2022-12-18&groupOid=${encodeURIComponent(dataG[1191])}`
+    const url = `https://www.ugrasu.ru/api/directory/lessons?fromdate=2023-05-29&todate=2023-06-04&groupOid=${encodeURIComponent(dataG[1191])}`
     
-
+    
     useEffect(()=>{
         fetch(url)
             .then((response)=>response.json())
@@ -29,7 +32,7 @@ export default function TimeTAble() {
 
     return (
     <ScrollView style={gStyle.main1}>
-        <View >
+        {/* <View >
         <Text style={gStyle.button1}>"Югорский государственный университет"</Text>
         <TouchableOpacity style={gStyle.button}><Text style={gStyle.title}>Гуманитарный институт</Text></TouchableOpacity>
         <TouchableOpacity style={gStyle.button} onPress={() => setModalVisibleING(!modalVisibleING)}><Text style={gStyle.title}>Институт нефти и газа</Text></TouchableOpacity>
@@ -64,18 +67,34 @@ export default function TimeTAble() {
         
         </View>
 
-        
+         */}
 
 
-{/* 
+
        {loading ? (<Text>Loading...</Text>) : (
-         data.map((post)=>(
-            <View>
-                <TouchableOpacity style={gStyle.button}><Text style={gStyle.title}>{post.auditorium}</Text></TouchableOpacity>
+       <View>
+           {/* <FlatList style={gStyle.title}>{data.subgroups}</FlatList> */}
 
-            </View>
-         ))
-       )} */}
+            {/* <TouchableOpacity 
+                data={data.index} 
+                keyExtractor={({ id }, index) => id} 
+                renderItem={({ item }) => (
+                        <Text>{item.auditorium + '. ' + item.author}</Text>
+            )}/>
+             */}
+            {/* <FlatList data={data.id} keyExtractor={({id},id)=>id} renderItem={({item})=>(<Text>{item.auditorium}</Text>)}></FlatList> */}
+            
+            {data.map(data=><TouchableOpacity><Text>{data.lecturerEmail}</Text></TouchableOpacity>)}
+            {data.map(data=><TouchableOpacity><Text>{data.beginLesson}</Text></TouchableOpacity>)}
+            {data.map(data=><TouchableOpacity><Text>{data.auditorium}</Text></TouchableOpacity>)}
+            {data.map(data=><TouchableOpacity><Text>{data.lecturer_title}</Text></TouchableOpacity>)}
+            {data.map(data=><TouchableOpacity><Text>{data.discipline}</Text></TouchableOpacity>)}
+            {data.map(data=><TouchableOpacity><Text>{data.auditorium}</Text></TouchableOpacity>)}
+
+
+        </View>
+      
+       )}
 
     </ScrollView >
     );
@@ -85,3 +104,6 @@ export default function TimeTAble() {
 const styles = StyleSheet.create({
   
 });
+
+
+
